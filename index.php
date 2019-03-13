@@ -1,5 +1,5 @@
 <?php
-$angular_project_path = get_stylesheet_directory_uri().'/my-app/dist/my-app/';
+$angular_project_path = get_template_directory_uri().'/my-app/dist/my-app/';
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,8 +10,10 @@ $angular_project_path = get_stylesheet_directory_uri().'/my-app/dist/my-app/';
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="<?php echo $angular_project_path; ?>favicon.ico">
-<link rel="stylesheet" href="<?php echo $angular_project_path; ?>styles.css"></head>
+  <?php wp_head(); ?>
+</head>
 <body>
   <app-root></app-root>
-<script type="text/javascript" src="<?php echo $angular_project_path; ?>runtime.js"></script><script type="text/javascript" src="<?php echo $angular_project_path; ?>es2015-polyfills.js" nomodule></script><script type="text/javascript" src="<?php echo $angular_project_path; ?>polyfills.js"></script><script type="text/javascript" src="<?php echo $angular_project_path; ?>main.js"></script></body>
+  <?php wp_footer(); ?>
+</body>
 </html>

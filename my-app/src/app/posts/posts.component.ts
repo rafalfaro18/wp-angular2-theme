@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-posts',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  baseUrl = location.href.split('/')[2] === 'localhost:4200' ? 'http://localhost:8081/wp-json/wp/v2' : '/wp-json/wp/v2';
+
+  constructor(private httpClient: HttpClient) { }
+
+  get_posts(){
+    this.httpClient.get(this.baseUrl + '/posts').subscribe((res)=>{
+        console.log(res);
+    });
+  }
 
   ngOnInit() {
   }

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostsComponent implements OnInit {
 
-  private posts  = [];
+  posts  = [];
 
   baseUrl = location.href.split('/')[2] === 'localhost:4200' ? 'http://localhost:8081/wp-json/wp/v2' : '/wp-json/wp/v2';
 

@@ -3,7 +3,7 @@
 </p>
 <button (click)="get_posts()">GET /posts</button>
 <ul>
-  <li *ngFor="let post of posts" >
+  <li *ngFor="let post of productsObservable | async" >
     -- id: {{post.id}}
     -- title: {{post.title.rendered}}
     -- content: {{post.content.rendered}}

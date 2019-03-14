@@ -2,3 +2,10 @@
   posts works!
 </p>
 <button (click)="get_posts()">GET /posts</button>
+<ul>
+  <li *ngFor="let post of posts" >
+    -- id: {{post.id}}
+    -- title: {{post.title.rendered}}
+    -- content: {{post.content.rendered}}
+  </li>
+</ul> 

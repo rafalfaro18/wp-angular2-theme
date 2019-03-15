@@ -12,3 +12,20 @@ function wp_angular2_enqueue_script() {
 }
 add_action( 'wp_enqueue_scripts', 'wp_angular2_enqueue_style' );
 add_action( 'wp_enqueue_scripts', 'wp_angular2_enqueue_script' );
+
+add_action( 'rest_api_init', 'adding_user_meta_rest' );
+
+function adding_user_meta_rest() {
+   register_rest_field( 'user',
+                        'custom_field_company',
+                         array(
+                           'get_callback'      => 'user_meta_callback',
+                           'update_callback'   => null,
+                           'schema'            => null,
+                            )
+                      );
+}
+
+function user_meta_callback( $user, $field_name, $request) {
+	return get_user_meta( $user[ 'id' ], $field_name, true );
+}

@@ -9,9 +9,7 @@ import { DataService } from '../data.service';
 })
 export class PostsComponent implements OnInit {
 
-  productsObservable : any ; 
-
-  baseUrl = location.href.split('/')[2] === 'localhost:4200' ? 'http://localhost:8081/wp-json/wp/v2' : '/wp-json/wp/v2';
+  productsObservable : any ;
 
   constructor(private dataService: DataService) { }
 

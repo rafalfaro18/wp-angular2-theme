@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-posts',
@@ -13,10 +13,10 @@ export class PostsComponent implements OnInit {
 
   baseUrl = location.href.split('/')[2] === 'localhost:4200' ? 'http://localhost:8081/wp-json/wp/v2' : '/wp-json/wp/v2';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private dataService: DataService) { }
 
   get_posts(){
-    this.productsObservable = this.httpClient.get(this.baseUrl + '/posts');
+    this.productsObservable = this.dataService.get_posts();
   }
 
   ngOnInit() {
